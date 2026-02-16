@@ -241,7 +241,8 @@ main>#about.active {
 
 /* About Section */
 #about {
-    background-color: var(--white);
+    background-color: transparent;
+    /* Consistend body bg */
 }
 
 .about-content {
@@ -252,7 +253,7 @@ main>#about.active {
 
 /* Skills Section */
 #skills {
-    background-color: var(--light-bg);
+    background-color: transparent;
 }
 
 .skills-grid {
@@ -292,7 +293,7 @@ main>#about.active {
 
 /* Projects Section */
 #projects {
-    background-color: var(--white);
+    background-color: transparent;
 }
 
 .projects-grid {
@@ -354,7 +355,7 @@ main>#about.active {
 
 /* Contact Section */
 #contact {
-    background-color: var(--light-bg);
+    background-color: transparent;
     text-align: center;
 }
 
