@@ -144,10 +144,7 @@ main>section.active {
 }
 
 /* Specific overrides for Flexbox layouts */
-main>#about.active {
-    display: block;
-    /* About is a normal block section now */
-}
+/* Handled in main About Section styles now */
 
 @keyframes fadeIn {
     from {
