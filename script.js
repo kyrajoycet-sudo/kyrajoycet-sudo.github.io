@@ -1,34 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
+    // 1. Set Initial State: Show Home, Hide others
+    const sections = document.querySelectorAll('main > section');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navMenu = document.querySelector('.nav-links');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    // Function to switch tabs
+    function switchTab(targetId) {
+        // Remove active class from all sections
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Add active class to target section
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+
+        // Update Nav Links Active State
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === targetId) {
+                link.classList.add('active');
+            }
+        });
+
+        // Mobile: Close menu after click
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    }
+
+    // Initialize: Check URL hash or default to #home
+    const initialHash = window.location.hash || '#home';
+    switchTab(initialHash);
+
+    // Event Listeners for Nav Links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Stop default jump-scroll behavior
+            const targetId = link.getAttribute('href');
+            switchTab(targetId);
+
+            // Optionally update URL hash without scrolling
+            history.pushState(null, null, targetId);
+        });
+    });
+
+    // Also handle "View My Work" button in Hero
+    const heroBtn = document.querySelector('.hero .btn');
+    if (heroBtn) {
+        heroBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchTab('#projects');
+            history.pushState(null, null, '#projects');
         });
     }
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu on click
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            }
+    // Toggle Hamburger Menu
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-    });
+    }
 });
