@@ -101,8 +101,14 @@ header {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--text-color);
+    /* Dark text for "Hi, I'm..." */
+    font-weight: 700;
+}
+
+.hero-content h1 .highlight {
     color: var(--accent-color);
-    /* Changed to accent since background is now white */
+    /* Pink accent for Name */
 }
 
 .hero-content h2 {
@@ -156,15 +162,14 @@ main>#about.active {
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero {
-    /* height: 100vh;  Removed to fit in container properly */
     height: calc(100vh - 70px);
     background: var(--gradient);
-    /* display: flex; handled by active state */
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 0 1rem;
+    /* Removed text-align: center to allow left alignment in split layout */
 }
 
 .hero-content h1 {
@@ -257,10 +262,76 @@ main>#about.active {
     /* Consistend body bg */
 }
 
+/* About Section */
+#about {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    /* Center vertical alignment for the whole section if needed */
+}
+
+.about-split-layout {
+    display: flex;
+    align-items: center;
+    /* Vertically center content */
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+}
+
+.about-left-text {
+    flex: 1;
+    text-align: left;
+    /* Text aligned to left as requested */
+}
+
+.about-left-text h1 {
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
 .about-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.about-buttons {
+    margin-top: 2rem;
+}
+
+.about-right-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.image-placeholder-box {
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px dashed var(--accent-color);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    /* Organic shape */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    gap: 1rem;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    transition: var(--transition);
+}
+
+.image-placeholder-box:hover {
+    border-radius: 50%;
+    transform: scale(1.02);
+}
+
+.image-placeholder-box i {
+    font-size: 3rem;
 }
 
 /* Skills Section */
@@ -439,5 +510,26 @@ footer {
 
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+
+    .about-split-layout {
+        flex-direction: column-reverse;
+        /* Put image on top on mobile? or standard column */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .about-left-text {
+        text-align: center;
+    }
+
+    .about-right-image {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .image-placeholder-box {
+        width: 250px;
+        height: 250px;
     }
 }
