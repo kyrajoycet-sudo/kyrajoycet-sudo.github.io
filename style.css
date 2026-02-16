@@ -1,7 +1,7 @@
 :root {
     --primary-color: #F5CBA7;
     --secondary-color: #FFF8F5;
-    --accent-color: #F5CBA7;
+    --accent-color: hsl(28, 80%, 81%);
     --text-color: #333;
     --bg-color: #FFF8F5;
     --light-bg: #f9f9f9;
