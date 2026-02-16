@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize: Check URL hash or default to #home
-    const initialHash = window.location.hash || '#home';
+    // Initialize: Check URL hash or default to #about
+    const initialHash = window.location.hash || '#about';
     switchTab(initialHash);
 
     // Event Listeners for Nav Links
