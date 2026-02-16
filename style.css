@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #ff9a9e;
-    --secondary-color: #fecfef;
-    --accent-color: #ff6b81;
+    --primary-color: #F5CBA7;
+    --secondary-color: #FFF8F5;
+    --accent-color: #C4648A;
     --text-color: #333;
-    --bg-color: #fff;
+    --bg-color: #FFF8F5;
     --light-bg: #f9f9f9;
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    --gradient: linear-gradient(135deg, #F08B9B 0%, #F5CBA7 100%);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
@@ -36,8 +36,8 @@ ul {
 /* Header */
 /* Header */
 header {
-    background: #ff9a9e;
-    /* User requested color */
+    background: var(--primary-color);
+    /* User requested lightiest color */
     box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
