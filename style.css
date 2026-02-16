@@ -1,13 +1,19 @@
 :root {
+    /* Refined Palette matching reference */
+    --header-bg: #ff9a9e;
+    /* User requested specific pink */
+    --body-bg: #FFF9F0;
+    /* Cream / Off-White */
+
     --primary-color: #ff9a9e;
-    --secondary-color: #fecfef;
-    --accent-color: #ff6b81;
-    --text-color: #333;
-    --bg-color: #fff;
-    --light-bg: #f9f9f9;
+    --secondary-color: #FFE4E6;
+    --accent-color: #FF8BA7;
+    /* Darker pink for buttons/highlights */
+    --text-color: #333333;
+    /* Soft Black */
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #ff9a9e 0%, #FF8BA7 100%);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease;
 }
 
@@ -20,7 +26,7 @@
 
 body {
     color: var(--text-color);
-    background-color: var(--bg-color);
+    background-color: var(--body-bg);
     line-height: 1.6;
     overflow-x: hidden;
     /* Prevent horizontal scroll */
@@ -37,7 +43,7 @@ ul {
 
 /* Header */
 header {
-    background: var(--white);
+    background: var(--header-bg);
     box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
@@ -57,9 +63,10 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-color);
+    /* Dark text on pink header */
+    background: none;
+    -webkit-text-fill-color: var(--text-color);
     cursor: pointer;
 }
 
@@ -70,13 +77,18 @@ header {
 
 .nav-links a {
     font-weight: 500;
+    color: var(--text-color);
+    /* Dark links on pink header */
     transition: var(--transition);
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--accent-color);
+    color: var(--white);
+    opacity: 1;
+    text-shadow: none;
 }
 
 .hamburger {
